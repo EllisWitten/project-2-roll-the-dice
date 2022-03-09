@@ -15,12 +15,13 @@ body{
 #game-area{
     width: 75%;
     height: 75%;
-    background-color: grey;
+    background-image: linear-gradient(to bottom right, #4a4a4a, #2a2a2a);
+    border-radius: 5px;
+    filter: drop-shadow(0 0 10px lightgrey);
 }
 #game-area table{
     width: 100%;
     height: 100%;
-    background-color: rgba(255,0,0,0.2);
     text-align: center;
 }
 #title{
