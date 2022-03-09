@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     for (let button of buttons){
         button.addEventListener('click', function(){
             if (this.getAttribute('data-type') === 'player-roll'){
-            console.log('correct')
+            playGame();
             } else {
                 console.log('incorrect')
             }
@@ -12,9 +12,15 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 })
 function playGame(){
+    let pnum1 = Math.floor(Math.random()*6 + 1);
+    let pnum2 = Math.floor(Math.random()*6 + 1);
+    let cnum1 = Math.floor(Math.random()*6 + 1);
+    let cnum2 = Math.floor(Math.random()*6 + 1);
+}
+function caluclatePlayerDiceValue(pnum1,pnum2) {
 
 }
-function caluclateDiceValue() {
+function caluclatePlayerDiceValue(cnum1,cnum2) {
 
 }
 function compareDiceValues() {
