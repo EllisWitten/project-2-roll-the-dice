@@ -16,12 +16,17 @@ function playGame(){
     let pnum2 = Math.floor(Math.random()*6 + 1);
     let cnum1 = Math.floor(Math.random()*6 + 1);
     let cnum2 = Math.floor(Math.random()*6 + 1);
-}
-function caluclatePlayerDiceValue(pnum1,pnum2) {
 
-}
-function caluclatePlayerDiceValue(cnum1,cnum2) {
+    document.getElementById('command-text').textContent = `Your first dice was ${pnum1} and your second dice was ${pnum2}`;
 
+    let playerDiceValue = caluclateDiceValue(pnum1,pnum2); 
+    console.log(playerDiceValue);
+    let computerDiceValue = caluclateDiceValue(cnum1,cnum2);
+    console.log(computerDiceValue);
+}
+function caluclateDiceValue(num1,num2) {
+    let sum = num1 + num2;
+    return sum;
 }
 function compareDiceValues() {
 
