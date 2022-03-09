@@ -16,18 +16,21 @@
             <tr id="dice-seciton">
                 <td>
                     <div id="player-section">
-                        <img src="assets/images/dice.png" alt="dice" style="width: 200px; height: 200px;">
+                        <img class='dice' datatype='player-roll' src="assets/images/dice.png" alt="dice" style="width: 200px; height: 200px;">
                         <h3>Your roll: <span id = 'player-roll'>0</span></h3>
                     </div>
                 </td>
                 <td>
                     <div id="computer-section">
-                        <img src="assets/images/dice.png" alt="dice" style="width: 200px; height: 200px;">
+                        <img class='dice' datatype="computer-roll" src="assets/images/dice.png" alt="dice" style="width: 200px; height: 200px;">
                         <h3>Computer roll: <span id = 'computer-roll'>0</span></h3>
                     </div>
                 </td>
-            </tr id='scores'>
-            <tr>
+            </tr>
+            <tr id="command">
+                <td colspan="2"><h2><span id="command-text">your turn</span></h2></td>
+            </tr>
+            <tr id="scores">
                 <td>
                     <h2>Games Won: <span>0</span></h2>
                 </td>
