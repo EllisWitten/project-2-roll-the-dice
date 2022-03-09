@@ -24,9 +24,10 @@ function playGame(){
 
     setTimeout(function(){changePlayerRoll(playerDiceValue)}, 1000);
     setTimeout(function(){changeCommandText('Lets see what the computer gets...')}, 5000);
-    setTimeout(function(){changeCommandText(`Computers first dice was ${cnum1} and Computers second dice was ${cnum2}`)}, 1000);
-    setTimeout(function(){changeComputerRoll(computerDiceValue)}, 1000);
 
+    setTimeout(function(){changeCommandText(`Its first dice was ${cnum1} and its second dice was ${cnum2}`)}, 8000);
+    setTimeout(function(){changeComputerRoll(computerDiceValue)}, 9000);
+    
 }
 function caluclateDiceValue(num1,num2) {
     let sum = num1 + num2;
