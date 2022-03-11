@@ -108,16 +108,18 @@ function compareDiceValues(csum, psum) {
 function incrementWins() {
     let score = parseInt(document.getElementById('wins').textContent);
     document.getElementById('wins').textContent = ++score;
-    startGame();
+    changeCommandText('You win!');
+    setTimout(startGame, 3000);
 }
 
 function incrementLoses() {
     let loses = parseInt(document.getElementById('loses').textContent);
     document.getElementById('loses').textContent = ++loses;
-    startGame();
+    changeCommandText('You lose!');
+    setTimout(startGame, 3000);
 }
 
 function displayDraw() {
-    changeCommandText('draw');
-    startGame(3000);
+    changeCommandText('Draw!');
+    setTimout(startGame, 3000);
 }
