@@ -74,7 +74,8 @@ function startComputerRoll(dataType) {
         changeCommandText(`Computers first dice was ${cnum1} and Computers second dice was ${cnum2}`);
         changeComputerRoll(computerSum);
         console.log(computerSum, playerSum);
-        setTimeout(function(){compareDiceValues(computerSum, playerSum)}, 4000);
+        setTimeout(function(){compareDiceValues(computerSum, playerSum)}, 3000);
+        setTimeout(startGame,5000);
     }
 }
 
@@ -109,17 +110,14 @@ function incrementWins() {
     let score = parseInt(document.getElementById('wins').textContent);
     document.getElementById('wins').textContent = ++score;
     changeCommandText('You win!');
-    setTimout(startGame, 3000);
 }
 
 function incrementLoses() {
     let loses = parseInt(document.getElementById('loses').textContent);
     document.getElementById('loses').textContent = ++loses;
-    changeCommandText('You lose!');
-    setTimout(startGame, 3000);
+    changeCommandText('You Lose!');
 }
 
 function displayDraw() {
     changeCommandText('Draw!');
-    setTimout(startGame, 3000);
 }
