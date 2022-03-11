@@ -73,7 +73,7 @@ function startComputerRoll(dataType) {
         changeCommandText(`Computers first dice was ${cnum1} and Computers second dice was ${cnum2}`);
         changeComputerRoll(computerSum);
         console.log(computerSum, playerSum);
-        compareDiceValues(computerSum, playerSum);
+        setTimeout(function(){compareDiceValues(computerSum, playerSum)}, 4000);
     }
 }
 
@@ -118,5 +118,5 @@ function incrementLoses() {
 
 function displayDraw() {
     changeCommandText('draw');
-    startGame();
+    startGame(3000);
 }
