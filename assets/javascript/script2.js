@@ -1,22 +1,31 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let buttons = document.getElementsByTagName('img');
+startGame();
+function startGame() {
+    document.addEventListener('DOMContentLoaded', function () {
+        let buttons = document.getElementsByTagName('img');
 
-    for (let button of buttons) {
-        button.addEventListener('click', function() {
-            if (this.getAttribute('data-type') === 'player-roll') {
-                let dataType = this.getAttribute('data-type');
-                rollPlayersDice(dataType);
-            } else if (this.getAttribute('data-type') === 'computer-roll' && (document.getElementById('command-text').innerHTML === 'Roll the Computers dice')){
-                let dataType = this.getAttribute('data-type');
-                rollComputersDice(dataType);
-            } else{
-                console.log('no values are met');
-                console.log (this.getAttribute('data-type'));
-                console.log(document.getElementById('command-text').innerHTML);
-            }
-        })
-    }
-})
+        for (let button of buttons) {
+            button.addEventListener('click', function () {
+                if (this.getAttribute('data-type') === 'player-roll' && (document.getElementById('command-text').innerHTML === 'Roll your dice!')) {
+                    let dataType = this.getAttribute('data-type');
+                    rollPlayersDice(dataType);
+                    console.log('first game');
+                } else if (this.getAttribute('data-type') === 'computer-roll' && (document.getElementById('command-text').innerHTML === 'Roll the Computers dice')) {
+                    let dataType = this.getAttribute('data-type');
+                    rollComputersDice(dataType);
+                } else if (this.getAttribute('data-type') === 'player-roll' && (document.getElementById('command-text').innerHTML === 'Roll your dice to start again')) {
+                    changeCommandText('Roll your dice!');
+                    console.log('2nd game started')
+                    rollPlayersDice('player-roll');
+                } else {
+                    console.log('no values are met');
+                    console.log(this.getAttribute('data-type'));
+                    console.log(document.getElementById('command-text').innerHTML);
+                }
+            })
+        }
+    })
+}
+
 function rollPlayersDice(dataType) {
     let pnum1 = Math.floor(Math.random() * 6 + 1);
     let pnum2 = Math.floor(Math.random() * 6 + 1);
@@ -26,7 +35,9 @@ function rollPlayersDice(dataType) {
 
     if (playerRoll) {
         startPlayerRoll(pnum1, pnum2);
-    } else{
+    } else {
+        console.log(commandText);
+        console.log(dataType);
         console.log('button clicked does not equal player roll or command text does not equal Roll your dice!')
     }
 
@@ -39,7 +50,8 @@ function startPlayerRoll(num1, num2) {
     changeCommandText('Roll the Computers dice');
     changePlayerRoll(sum);
 }
-function rollComputersDice(dataType){
+
+function rollComputersDice(dataType) {
     let cnum1 = Math.floor(Math.random() * 6 + 1);
     let cnum2 = Math.floor(Math.random() * 6 + 1);
     console.log(dataType);
@@ -50,15 +62,18 @@ function rollComputersDice(dataType){
 
     if (computerRoll) {
         changeComputerScore(cnum1, cnum2);
-    } else{
+    } else {
         console.log('button clicked does not equal player roll or command text does not equal Roll your dice!')
     }
 }
+
 function changeComputerScore(num1, num2) {
     let csum = caluclateDiceValue(num1, num2);
+    let psum = document.getElementById('player-roll').innerHTML;
 
     changeCommandText(`Computers first dice was ${num1} and Computers second dice was ${num2}`);
     changeComputerRoll(csum);
+    compareDiceValues(csum, psum);
 }
 
 
@@ -93,24 +108,21 @@ function compareDiceValues(csum, psum) {
 function incrementWins() {
     let score = parseInt(document.getElementById('wins').textContent);
     document.getElementById('wins').textContent = ++score;
-    wins = wins ++;
-    console.log('wins'+wins);
     changeCommandText('You win!');
+    changeCommandText('Roll your dice to start again');
     startGame();
 }
 
 function incrementLoses() {
     let loses = parseInt(document.getElementById('loses').textContent);
     document.getElementById('loses').textContent = ++loses;
-    loses = loses++;
-    console.log('loses'+loses);
     changeCommandText('You Lose!');
-    startGame();
+    changeCommandText('Roll your dice to start again');
+    startGame(2);
 }
 
 function displayDraw() {
     changeCommandText('Draw!');
-    draws = draws++;
-    startGame();
-    console.log('draws'+draws);
+    changeCommandText('Roll your dice to start again');
+    startGame(2);
 }
