@@ -38,6 +38,7 @@ function startPlayerRoll(num1, num2) {
     let sum = caluclateDiceValue(num1, num2);
 
     changeCommandText(`your first dice was ${num1} and your second dice was ${num2}`);
+    setTimeout(function(){changeCommandText('Roll the Computers dice')}, 3000);
     changePlayerRoll(sum);
 
     waitForPlayerClick();
