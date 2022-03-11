@@ -15,6 +15,8 @@ function startGame() {
                 } else if (this.getAttribute('data-type') === 'player-roll' && (document.getElementById('command-text').innerHTML === 'Roll your dice to start again')) {
                     changeCommandText('Roll your dice!');
                     console.log('2nd game started')
+                    changeComputerRoll(0);
+                    changePlayerRoll(0);
                     rollPlayersDice('player-roll');
                 } else {
                     console.log('no values are met');
@@ -47,7 +49,7 @@ function startPlayerRoll(num1, num2) {
     let sum = caluclateDiceValue(num1, num2);
 
     changeCommandText(`your first dice was ${num1} and your second dice was ${num2}`);
-    changeCommandText('Roll the Computers dice');
+    setTimeout(function(){changeCommandText('Roll the Computers dice')},3000);
     changePlayerRoll(sum);
 }
 
@@ -97,11 +99,11 @@ function changeComputerRoll(num) {
 
 function compareDiceValues(csum, psum) {
     if (csum > psum) {
-        incrementLoses();
+        setTimeout(incrementLoses,2000);
     } else if (csum < psum) {
-        incrementWins();
+        setTimeout(incrementWins,2000);
     } else {
-        displayDraw();
+        setTimeout(displayDraw,2000);
     }
 }
 
@@ -109,7 +111,7 @@ function incrementWins() {
     let score = parseInt(document.getElementById('wins').textContent);
     document.getElementById('wins').textContent = ++score;
     changeCommandText('You win!');
-    changeCommandText('Roll your dice to start again');
+    setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
     startGame();
 }
 
@@ -117,12 +119,12 @@ function incrementLoses() {
     let loses = parseInt(document.getElementById('loses').textContent);
     document.getElementById('loses').textContent = ++loses;
     changeCommandText('You Lose!');
-    changeCommandText('Roll your dice to start again');
+    setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
     startGame(2);
 }
 
 function displayDraw() {
     changeCommandText('Draw!');
-    changeCommandText('Roll your dice to start again');
+    setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
     startGame(2);
 }
