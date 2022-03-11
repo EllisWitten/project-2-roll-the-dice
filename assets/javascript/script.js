@@ -1,3 +1,8 @@
+startGame();
+function startGame(){
+    changeCommandText('Roll your dice!');
+    changeComputerRoll(0);
+    changePlayerRoll(0);
 document.addEventListener('DOMContentLoaded', function () {
     let buttons = document.getElementsByTagName('img');
 
@@ -12,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
 })
+}
 
 function playGame(dataType) {
     let pnum1 = Math.floor(Math.random() * 6 + 1);
@@ -61,10 +67,13 @@ function startComputerRoll(dataType) {
     console.log(playGame2);
 
     if (playGame2) {
-        let sum = caluclateDiceValue(cnum1, cnum2);
+        let computerSum = caluclateDiceValue(cnum1, cnum2);
+        let playerSum = parseInt(document.getElementById('player-roll').textContent);
 
         changeCommandText(`Computers first dice was ${cnum1} and Computers second dice was ${cnum2}`);
-        changeComputerRoll(sum);
+        changeComputerRoll(computerSum);
+        console.log(computerSum, playerSum);
+        compareDiceValues(computerSum, playerSum);
     }
 }
 
@@ -85,14 +94,29 @@ function changeComputerRoll(num) {
     document.getElementById('computer-roll').textContent = num;
 }
 
-function compareDiceValues() {
-
+function compareDiceValues(csum, psum) {
+    if (csum > psum) {
+        incrementLoses();
+    } else if (csum < psum) {
+        incrementWins();
+    } else {
+        displayDraw();
+    }
 }
 
 function incrementWins() {
-
+    let score = parseInt(document.getElementById('wins').textContent);
+    document.getElementById('wins').textContent = ++score;
+    startGame();
 }
 
 function incrementLoses() {
+    let loses = parseInt(document.getElementById('loses').textContent);
+    document.getElementById('loses').textContent = ++loses;
+    startGame();
+}
 
+function displayDraw() {
+    changeCommandText('draw');
+    startGame();
 }
