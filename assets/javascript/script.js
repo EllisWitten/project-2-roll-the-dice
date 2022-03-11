@@ -1,53 +1,98 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     let buttons = document.getElementsByTagName('img');
 
-    for (let button of buttons){
-        button.addEventListener('click', function(){
-            if (this.getAttribute('data-type') === 'player-roll'){
-            playGame();
+    for (let button of buttons) {
+        button.addEventListener('click', function () {
+            if (this.getAttribute('data-type') === 'player-roll') {
+                let dataType = this.getAttribute('data-type');
+                playGame(dataType);
             } else {
                 console.log('incorrect')
             }
         })
     }
 })
-function playGame(){
-    let pnum1 = Math.floor(Math.random()*6 + 1);
-    let pnum2 = Math.floor(Math.random()*6 + 1);
-    let cnum1 = Math.floor(Math.random()*6 + 1);
-    let cnum2 = Math.floor(Math.random()*6 + 1);
 
-    setTimeout(function(){changeCommandText(`Your first dice was ${pnum1} and your second dice was ${pnum2}`)}, 1000);
+function playGame(dataType) {
+    let pnum1 = Math.floor(Math.random() * 6 + 1);
+    let pnum2 = Math.floor(Math.random() * 6 + 1);
 
-    let playerDiceValue = caluclateDiceValue(pnum1,pnum2); 
-    let computerDiceValue = caluclateDiceValue(cnum1,cnum2);
+    let commandText = document.getElementById('command-text').textContent;
+    let playGame1 = (dataType === 'player-roll') && (commandText === 'Roll your dice!');
 
-    setTimeout(function(){changePlayerRoll(playerDiceValue)}, 1000);
-    setTimeout(function(){changeCommandText('Lets see what the computer gets...')}, 5000);
 
-    setTimeout(function(){changeCommandText(`Its first dice was ${cnum1} and its second dice was ${cnum2}`)}, 8000);
-    setTimeout(function(){changeComputerRoll(computerDiceValue)}, 9000);
-    
+    console.log(playGame1);
+    if (playGame1) {
+        startPlayerRoll(pnum1, pnum2);
+    }
+
 }
-function caluclateDiceValue(num1,num2) {
+
+function startPlayerRoll(num1, num2) {
+    let sum = caluclateDiceValue(num1, num2);
+
+    changeCommandText(`your first dice was ${num1} and your second dice was ${num2}`);
+    changePlayerRoll(sum);
+
+    waitForPlayerClick();
+}
+
+function waitForPlayerClick() {
+    let buttons = document.getElementsByTagName('img');
+
+    for (let button of buttons) {
+        button.addEventListener('click', function () {
+            if (this.getAttribute('data-type') === 'computer-roll') {
+                let dataType = this.getAttribute('data-type');
+                startComputerRoll(dataType);
+            } else {
+                waitForPlayerClick();
+            }
+        })
+    }
+}
+
+function startComputerRoll(dataType) {
+    let cnum1 = Math.floor(Math.random() * 6 + 1);
+    let cnum2 = Math.floor(Math.random() * 6 + 1);
+
+    let playerValue = parseInt(document.getElementById('player-roll').textContent);
+    let playGame2 = (dataType === 'computer-roll') && (playerValue != 0);
+    console.log(playGame2);
+
+    if (playGame2) {
+        let sum = caluclateDiceValue(cnum1, cnum2);
+
+        changeCommandText(`Computers first dice was ${cnum1} and Computers second dice was ${cnum2}`);
+        changeComputerRoll(sum);
+    }
+}
+
+function caluclateDiceValue(num1, num2) {
     let sum = num1 + num2;
     return sum;
 }
-function changeCommandText(string){
+
+function changeCommandText(string) {
     document.getElementById('command-text').textContent = string;
 }
-function changePlayerRoll(num){
+
+function changePlayerRoll(num) {
     document.getElementById('player-roll').textContent = num;
 }
-function changeComputerRoll(num){
+
+function changeComputerRoll(num) {
     document.getElementById('computer-roll').textContent = num;
 }
+
 function compareDiceValues() {
 
 }
+
 function incrementWins() {
 
 }
+
 function incrementLoses() {
 
 }
