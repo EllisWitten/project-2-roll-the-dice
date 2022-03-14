@@ -111,20 +111,23 @@ function incrementWins() {
     let score = parseInt(document.getElementById('wins').textContent);
     document.getElementById('wins').textContent = ++score;
     changeCommandText('You win!');
-    setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
-    startGame();
+    finish();
 }
 
 function incrementLoses() {
     let loses = parseInt(document.getElementById('loses').textContent);
     document.getElementById('loses').textContent = ++loses;
     changeCommandText('You Lose!');
-    setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
-    startGame(2);
+    finish();
 }
 
 function displayDraw() {
     changeCommandText('Draw!');
+    finish();
+}
+function finish(){
     setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
-    startGame(2);
+    setTimeout(function(){document.getElementById('player-roll').innerHTML = 0}, 2000);
+    setTimeout(function(){document.getElementById('computer-roll').innerHTML = 0}, 2000);
+    startGame();
 }
