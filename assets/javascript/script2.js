@@ -129,5 +129,20 @@ function finish(){
     setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
     setTimeout(function(){document.getElementById('player-roll').innerHTML = 0}, 2000);
     setTimeout(function(){document.getElementById('computer-roll').innerHTML = 0}, 2000);
-    startGame();
+
+    let wins = parseInt(document.getElementById('wins').innerHTML);
+    let loses = parseInt(document.getElementById('loses').innerHTML);
+    if(wins === 5 || loses === 5){
+        if (wins > loses){
+            changeCommandText('You beat the computer');
+            document.getElementById('wins').textContent = 0;
+            document.getElementById('loses').textContent = 0;
+        } else{
+            changeCommandText('The computer beat you');
+            document.getElementById('wins').textContent = 0;
+            document.getElementById('loses').textContent = 0;
+        }
+    } else{
+        startGame();
+    }
 }
