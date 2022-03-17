@@ -72,9 +72,8 @@ body{
     top: 50%;
     border-radius: 10px 10px 0 0;
 }
-#tab-3{
-    background-color: red;
-    border-radius: 10px;
+#tabs tr td{
+    border-radius: 10px 10px 0 0;
 }
 td button{
     background-color:initial;

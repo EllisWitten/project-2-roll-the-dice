@@ -1,4 +1,5 @@
 startGame();
+
 function startGame() {
     document.addEventListener('DOMContentLoaded', function () {
         let buttons = document.getElementsByTagName('img');
@@ -26,15 +27,40 @@ function startGame() {
             })
         }
         let tabs = document.getElementsByTagName('button');
-        for (let tab of tabs){
-            tab.addEventListener('click', function(){
-                if (this.getAttribute('data-type') === '3'){
+        for (let tab of tabs) {
+            tab.addEventListener('click', function () {
+                if (this.getAttribute('data-type') === '3') {
                     document.getElementById('sub-title').innerHTML = '(first to 3)';
                     document.getElementById('tab-3').style.backgroundColor = 'red';
-                } else if (this.getAttribute('data-type') === '5'){
+                    document.getElementsByTagName('button')[0].style.backgroundColor = 'red';
+
+                    document.getElementById('tab-5').style.backgroundColor = '#323232';
+                    document.getElementsByTagName('button')[1].style.backgroundColor = '#323232';
+
+                    document.getElementById('tab-7').style.backgroundColor = '#323232';
+                    document.getElementsByTagName('button')[2].style.backgroundColor = '#323232';
+                } else if (this.getAttribute('data-type') === '5') {
                     document.getElementById('sub-title').innerHTML = '(first to 5)';
-                } else if (this.getAttribute('data-type') === '7'){
+                    
+                    document.getElementById('tab-5').style.backgroundColor = 'red';
+                    document.getElementsByTagName('button')[1].style.backgroundColor = 'red';
+
+                    document.getElementById('tab-3').style.backgroundColor = '#323232';
+                    document.getElementsByTagName('button')[0].style.backgroundColor = '#323232';
+
+                    document.getElementById('tab-7').style.backgroundColor = '#323232';
+                    document.getElementsByTagName('button')[2].style.backgroundColor = '#323232';
+                } else if (this.getAttribute('data-type') === '7') {
                     document.getElementById('sub-title').innerHTML = '(first to 7)';
+                    
+                    document.getElementById('tab-7').style.backgroundColor = 'red';
+                    document.getElementsByTagName('button')[2].style.backgroundColor = 'red';
+
+                    document.getElementById('tab-5').style.backgroundColor = '#323232';
+                    document.getElementsByTagName('button')[1].style.backgroundColor = '#323232';
+
+                    document.getElementById('tab-3').style.backgroundColor = '#323232';
+                    document.getElementsByTagName('button')[0].style.backgroundColor = '#323232';
                 }
             })
         }
@@ -62,7 +88,9 @@ function startPlayerRoll(num1, num2) {
     let sum = caluclateDiceValue(num1, num2);
 
     changeCommandText(`your first dice was ${num1} and your second dice was ${num2}`);
-    setTimeout(function(){changeCommandText('Roll the Computers dice')},3000);
+    setTimeout(function () {
+        changeCommandText('Roll the Computers dice')
+    }, 3000);
     changePlayerRoll(sum);
 }
 
@@ -112,11 +140,11 @@ function changeComputerRoll(num) {
 
 function compareDiceValues(csum, psum) {
     if (csum > psum) {
-        setTimeout(incrementLoses,2000);
+        setTimeout(incrementLoses, 2000);
     } else if (csum < psum) {
-        setTimeout(incrementWins,2000);
+        setTimeout(incrementWins, 2000);
     } else {
-        setTimeout(displayDraw,2000);
+        setTimeout(displayDraw, 2000);
     }
 }
 
@@ -138,24 +166,31 @@ function displayDraw() {
     changeCommandText('Draw!');
     finish();
 }
-function finish(){
-    setTimeout(function(){changeCommandText('Roll your dice to start again')},2000);
-    setTimeout(function(){document.getElementById('player-roll').innerHTML = 0}, 2000);
-    setTimeout(function(){document.getElementById('computer-roll').innerHTML = 0}, 2000);
+
+function finish() {
+    setTimeout(function () {
+        changeCommandText('Roll your dice to start again')
+    }, 2000);
+    setTimeout(function () {
+        document.getElementById('player-roll').innerHTML = 0
+    }, 2000);
+    setTimeout(function () {
+        document.getElementById('computer-roll').innerHTML = 0
+    }, 2000);
 
     let wins = parseInt(document.getElementById('wins').innerHTML);
     let loses = parseInt(document.getElementById('loses').innerHTML);
-    if(wins === 5 || loses === 5){
-        if (wins > loses){
+    if (wins === 5 || loses === 5) {
+        if (wins > loses) {
             changeCommandText('You beat the computer');
             document.getElementById('wins').textContent = 0;
             document.getElementById('loses').textContent = 0;
-        } else{
+        } else {
             changeCommandText('The computer beat you');
             document.getElementById('wins').textContent = 0;
             document.getElementById('loses').textContent = 0;
         }
-    } else{
+    } else {
         startGame();
     }
 }
