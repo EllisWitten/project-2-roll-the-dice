@@ -44,7 +44,7 @@ body{
 }
 #sub-title{
     height: 5%;
-    font-size: 1em;
+    font-size: 1.5em;
     line-height: -75px;
 }
 #sub-title h2{
@@ -63,14 +63,21 @@ body{
     background-color: #323232;
     color: white;
     text-align: center;
-    width: 14%;
+    width: 23.2vh;
     height: 40px;
     padding: 0;
     transform: rotate(90deg);
     position: absolute;
-    left:94%;
+    right:-110px;
     top: 50%;
     border-radius: 10px 10px 0 0;
+}
+#tab-3{
+    background-color: red;
+    border-radius: 10px;
+}
+td button{
+    background-color:initial;
 }
 #tabs tr td{
     margin: 0;

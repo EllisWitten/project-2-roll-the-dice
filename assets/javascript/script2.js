@@ -25,6 +25,19 @@ function startGame() {
                 }
             })
         }
+        let tabs = document.getElementsByTagName('button');
+        for (let tab of tabs){
+            tab.addEventListener('click', function(){
+                if (this.getAttribute('data-type') === '3'){
+                    document.getElementById('sub-title').innerHTML = '(first to 3)';
+                    document.getElementById('tab-3').style.backgroundColor = 'red';
+                } else if (this.getAttribute('data-type') === '5'){
+                    document.getElementById('sub-title').innerHTML = '(first to 5)';
+                } else if (this.getAttribute('data-type') === '7'){
+                    document.getElementById('sub-title').innerHTML = '(first to 7)';
+                }
+            })
+        }
     })
 }
 
