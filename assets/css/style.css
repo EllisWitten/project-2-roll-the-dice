@@ -22,12 +22,12 @@ body{
     background-repeat: no-repeat;
     border-radius: 5px;
     filter: drop-shadow(0 0 10px lightgrey);
-    overflow: hidden;
 }
-#game-area table{
+#play-area{
     width: 100%;
     height: 100%;
     text-align: center;
+    position: relative;
 }
 .dice{
     max-width: 70%;
@@ -51,7 +51,7 @@ body{
     margin-top:0;
 }
 #dice-section{
-    height: 30%;
+    height: 35%;
 }
 #command{
     height: 20%;
@@ -59,8 +59,35 @@ body{
 #scores{
     height:20%;
 }
-@media only screen and (max-width: 600px) {
+#tabs{
+    background-color: #323232;
+    color: white;
+    text-align: center;
+    width: 14%;
+    height: 40px;
+    padding: 0;
+    transform: rotate(90deg);
+    position: absolute;
+    left:94%;
+    top: 50%;
+    border-radius: 10px 10px 0 0;
+}
+#tabs tr td{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#tabs tr td button{
+    background-color: #323232;
+    color: white;
+    border-style:none;
+    font-size: 1.5em;
+}
+@media only screen and (max-width: 800px) {
     h1{
-        font-size: 2em;
+        font-size: 1.4em;
+    }
+    h2{
+        font-size: 1.2em;
     }
 }
