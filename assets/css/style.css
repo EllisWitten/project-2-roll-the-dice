@@ -72,16 +72,9 @@ body{
     top: 50%;
     border-radius: 10px 10px 0 0;
 }
-.red-bg{
-    background-color: blue;
-    color: blue;
-}
 #tabs tr td{
     border-radius: 10px 10px 0 0;
 }
-/* td button{
-    /* background-color:initial; */
-} */
 #tabs tr td{
     margin: 0;
     padding: 0;
