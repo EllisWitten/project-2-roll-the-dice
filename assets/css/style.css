@@ -72,22 +72,31 @@ body{
     top: 50%;
     border-radius: 10px 10px 0 0;
 }
+.red-bg{
+    background-color: blue;
+    color: blue;
+}
 #tabs tr td{
     border-radius: 10px 10px 0 0;
 }
-td button{
-    background-color:initial;
-}
+/* td button{
+    /* background-color:initial; */
+} */
 #tabs tr td{
     margin: 0;
     padding: 0;
     height: 100%;
 }
 #tabs tr td button{
-    background-color: #323232;
     color: white;
     border-style:none;
     font-size: 1.5em;
+}
+.red-bg{
+    background-color: red;
+}
+.grey-bg{
+    background-color: #323232;
 }
 @media only screen and (max-width: 800px) {
     h1{
