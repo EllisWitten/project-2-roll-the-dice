@@ -41,7 +41,7 @@ function startGame() {
                     document.getElementsByTagName('button')[2].style.backgroundColor = '#323232';
                 } else if (this.getAttribute('data-type') === '5') {
                     document.getElementById('sub-title').innerHTML = '(first to 5)';
-                    
+
                     document.getElementById('tab-5').style.backgroundColor = 'red';
                     document.getElementsByTagName('button')[1].style.backgroundColor = 'red';
 
@@ -52,7 +52,7 @@ function startGame() {
                     document.getElementsByTagName('button')[2].style.backgroundColor = '#323232';
                 } else if (this.getAttribute('data-type') === '7') {
                     document.getElementById('sub-title').innerHTML = '(first to 7)';
-                    
+
                     document.getElementById('tab-7').style.backgroundColor = 'red';
                     document.getElementsByTagName('button')[2].style.backgroundColor = 'red';
 
@@ -180,17 +180,64 @@ function finish() {
 
     let wins = parseInt(document.getElementById('wins').innerHTML);
     let loses = parseInt(document.getElementById('loses').innerHTML);
-    if (wins === 5 || loses === 5) {
-        if (wins > loses) {
-            changeCommandText('You beat the computer');
-            document.getElementById('wins').textContent = 0;
-            document.getElementById('loses').textContent = 0;
+
+    let winScore = document.getElementById('sub-title').textContent;
+    console.log(winScore);
+
+    if (winScore === '(first to 5)') {
+        if (wins === 5 || loses === 5) {
+            if (wins > loses) {
+                changeCommandText('You beat the computer');
+                document.getElementById('wins').textContent = 0;
+                document.getElementById('loses').textContent = 0;
+            } else {
+                changeCommandText('The computer beat you');
+                document.getElementById('wins').textContent = 0;
+                document.getElementById('loses').textContent = 0;
+            }
         } else {
-            changeCommandText('The computer beat you');
-            document.getElementById('wins').textContent = 0;
-            document.getElementById('loses').textContent = 0;
+            startGame();
         }
-    } else {
-        startGame();
+    } else if (winScore ==='(first to 3)'){
+        if (wins === 3 || loses === 3) {
+            if (wins > loses) {
+                changeCommandText('You beat the computer');
+                document.getElementById('wins').textContent = 0;
+                document.getElementById('loses').textContent = 0;
+            } else {
+                changeCommandText('The computer beat you');
+                document.getElementById('wins').textContent = 0;
+                document.getElementById('loses').textContent = 0;
+            }
+        } else {
+            startGame();
+        }
+    } else if (winScore ==='(first to 7)'){
+        if (wins === 7 || loses === 7) {
+            if (wins > loses) {
+                changeCommandText('You beat the computer');
+                document.getElementById('wins').textContent = 0;
+                document.getElementById('loses').textContent = 0;
+            } else {
+                changeCommandText('The computer beat you');
+                document.getElementById('wins').textContent = 0;
+                document.getElementById('loses').textContent = 0;
+            }
+        } else {
+            startGame();
+        }
     }
+    // if (wins === 5 || loses === 5) {
+    //     if (wins > loses) {
+    //         changeCommandText('You beat the computer');
+    //         document.getElementById('wins').textContent = 0;
+    //         document.getElementById('loses').textContent = 0;
+    //     } else {
+    //         changeCommandText('The computer beat you');
+    //         document.getElementById('wins').textContent = 0;
+    //         document.getElementById('loses').textContent = 0;
+    //     }
+    // } else {
+    //     startGame();
+    // }
 }
