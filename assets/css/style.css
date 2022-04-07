@@ -45,7 +45,7 @@ body{
 #sub-title{
     height: 5%;
     font-size: 1.5em;
-    line-height: -75px;
+    /* line-height: -75px; */
 }
 #sub-title h2{
     margin-top:0;

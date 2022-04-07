@@ -1,52 +1,62 @@
 # Love Maths
 
-Roll the dice is a fun randomised game where you play the computer to see who can roll a hgiher number. The game takes two dice into account which menas theres a hgih score of 12 and a low score of 2 and compares that to the computers roll. Its a simple game that demonstrates how JavaScript can work in a rela world website. The site ws designed to give people a break, from whatever it is they may be working on weather it is emails, projects or other stresfful computer tasks, to try their hand at a little bit of luck and see if they can beat the computer for 5 minutes. 
+Roll the dice is a fun randomised game where you play the computer to see who can roll a higher number. The game takes two dice into account which menas theres a hgih score of 12 and a low score of 2 and compares that to the computers roll. Its a simple game that demonstrates how JavaScript can work in a real world website. The site was designed to give people a break, from whatever it is they may be working on weather it is emails, projects or other stressful computer tasks, to try their hand at a little bit of luck and see if they can beat the computer for 5 minutes. 
 
-![Responsice Mockup](media/love_maths_mockup.png)
+<img src="assets/images/Multi Device Website Mockup Generator - Google Chrome 07_04_2022 13_53_59 (2).png" width='750px' height='400px'>
 
-## Features 
+## Features
 
 In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 ### Existing Features
 
-- __The Love Maths Logo and Heading__
+- __Roll the Dice Heading__
 
-  - Featured at the top of the page, the Love Maths logo and heading is easy to see for the user. Upon viewing the page, the user will be able to see the name of the game.
+  - A bold heading at the top of the page reads the title of the game 'Roll the Dice!'. To the user this projects the name of the game clearly.
 
-![Logo](media/love_maths_logo.png)
+<img src='assets/images/rtd-title.png' height='200px' width='500px'>
 
 - __The Game Area__
 
-  - This section will allow the user to play the maths game. The user will be able to easily see icons for addition,  subtraction, multiplication, and division games.
-  - The user will be able to select the type of maths game they will be playing by clicking on the different icons. 
+  - The game area allows the user to interact with the main functions of the website and play the game. The user will has the options to roll either their dice or the computers dce by using the two dice buttons.
 
-![Game](media/love_maths_icons.png)
+<img src='assets/images/Roll the Dice! - Google Chrome 12_03_2022 12_32_51.png' width='750px' height='400px'>
 
-- __The Question section__
+- __The Dice Value section__
 
-  - The question section is where the user will be able to see the elementary arithmetic question to answer as part of the game. The user will be able answer the questions in the answer box provide
-  - The user will be able to submit their answer and a pop-up will make it known to the user if they answered correctly. 
+  - The dice values are placed directly below both the player dice and the computer dice. When the game commences both the players dice value and the computers dice value are 0, because no one has rolled.
+  - When the user rolls the first set of dice the value of 'Your roll:' changes to the combnation of the two randomised values and the same happens to the 'Computers Roll:' when the user rolls the computer dice.  
 
-![Question](media/love_maths_question.png)
+<img src='assets/images/rtd-value.png' height='150px' width='300px'>
 
-- __The Score Area__
+- __The Command Area__
 
-  - This section will allow the user to see exactly how many correct and incorrect answers they have provided. 
+  - The command section is an ever looping paragraph which guids the user of what to do. To begin with it instructs the user to roll the players dice and then follows by instructing the user to roll the computers dice.
 
-![score](media/love_maths_answer.png)
+  - Aswell as directing the users decsions the command area also outputs the results of the fucntions to the user. For example it outputs the players first and second dice, and then the same for the computers role, and finally who won that game.
 
-For some/all of your features, you may choose to reference the specific project files that implement them.
+  - Finally the command section displays the the user who is the winner when the desired score limit has been reached.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+<img src='assets/images/rtd-command.png' height='200px' width='350px'> 
+
+__The Scores area__
+
+  - The scores area has two components, the players score and the computers score. Once both sets od dice are rolled the script calculates the winner of that game and increments either the players score or the computers score by 1. Once this desired score limit has been reached the scores both reset back to 0.
+
+<img src='assets/images/rtd-score.png' height='200px' width='350px'> 
+
+__The Tab Area__
+
+  - The tab area has 3 selectors to choose from; 3,5 and 7. The defualt value whne the game is loaded is 5 however should the user want to change the score limit of the game, they can do this by selecting either 3 or 7.
+
 
 ### Features Left to Implement
 
-- Another feature idea
+- I wanted to add some sort of visual animation for high and low dice rolls. For example if the combined dice roll was above 10 then the roll value of the player roll would have a gold backgorund and if the roll was below 6 then the roll value would have a red background.
 
 ## Testing 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+In this section, you need to convince the assessorn the future: that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your project’s features and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
@@ -58,7 +68,7 @@ If this section grows too long, you may want to split it off into a separate fil
 ### Validator Testing 
 
 - HTML
-    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-maths%2F)
+    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Felliswitten.github.io%2Fproject-2-roll-the-dice%2F)
 - CSS
     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-maths%252F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - JavaScript
